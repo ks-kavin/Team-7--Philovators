@@ -1,0 +1,274 @@
+Kavin K S - Prompt Used
+
+# PHILIPS HACKATHON 2026 – PROJECT PROMPTS AND REQUIREMENTS
+
+## 1. Hackathon Preparation
+
+This is the PPT I have received in my mail for the hackathon. Now I need to do this all.
+
+Which IDE is better for the hackathon?
+
+What do I need to do next?
+
+I want to understand the technologies that we are going to use and how we will implement the complete project.
+
+## 2. Technology and Environment Understanding
+
+Is this project about Generative AI?
+
+Is this an ML project?
+
+Can we complete the entire project using VS Code itself?
+
+We need to do data processing, right?
+
+Google Colab is for data processing, right? Can we do the processing in VS Code itself?
+
+Is VS Code itself enough for a company-level project?
+
+How will we integrate Databricks, Google Colab and VS Code?
+
+Databricks is a platform to run PySpark, and PySpark is used to process large datasets, right?
+
+Are these the four technologies we are going to use? Are there any others?
+
+What are APIs? What purpose do they serve? We have created four types of API keys for environment setup.
+
+## 3. Main Project Requirements
+
+Project Name: Business Deviation Analysis & Commentary
+
+Develop an end-to-end business analysis application using the Philips Advertising and Promotion dataset.
+
+The project should analyze Advertising and Promotion (A&P) spending across product units, countries and markets.
+
+Business context:
+- Approximately €650 million annual A&P spending.
+- 18 product units.
+- 21 countries.
+- Monthly actual spending versus budget spending.
+
+The main objective is to identify where the A&P money is being spent, understand deviations from budget and explain whether the spending is justified by sales performance.
+
+## 4. Data Processing and Transformation
+
+Use Python to process and clean the provided dataset.
+
+The processing should include:
+- Load the Excel dataset and its reference sheets.
+- Clean missing and inconsistent values.
+- Remove duplicate records.
+- Join product, currency and market reference information.
+- Classify countries into the appropriate geographic markets.
+- Handle records belonging to the shared Business market.
+- Convert local currency values into EUR for global comparisons.
+- Calculate the required financial metrics.
+- Generate transformed datasets and data-quality reports.
+
+Currency conversion should use the provided exchange rates, where the exchange rate represents local currency units per EUR.
+
+## 5. Financial Analysis and Business Logic
+
+Use the following metrics:
+
+- Advertising & Promotion Local.
+- Advertising & Promotion Central.
+- Total A&P Spend.
+- Total Sales.
+- Budget A&P Spend.
+- Actual A&P Spend.
+- Budget Sales.
+- Actual Sales.
+
+Exclude Other Selling Expenses from A&P calculations.
+
+Calculate sales-adjusted expected spending using:
+
+Expected Spend = Budget A&P Spend × Actual Sales / Budget Sales
+
+Calculate real overspend using:
+
+Real Overspend = Actual A&P Spend − Expected Spend
+
+The analysis must not consider every budget overspend as a negative business outcome.
+
+For example:
+- If spending increases and sales also increase, the additional spending may be justified.
+- If spending remains the same but sales increase, efficiency improves.
+- If spending increases but sales decrease, investigate the deviation.
+- If spending decreases while sales increase, identify the improvement in efficiency.
+- If both spending and sales change, evaluate spending relative to sales performance.
+
+Do not fabricate profit calculations because the dataset does not contain all the costs required to calculate actual profit.
+
+## 6. Statistical Analysis
+
+Perform statistical analysis to identify unusual spending patterns.
+
+Include:
+- Modified Z-score anomaly detection.
+- Statistical significance testing.
+- T-tests.
+- Multiple-comparison correction using the Benjamini-Hochberg method.
+- Monthly deviation analysis.
+- Product-country performance analysis.
+
+Identify statistically significant deviations and distinguish them from ordinary fluctuations.
+
+## 7. Dashboard Development
+
+Develop an interactive dashboard using React.
+
+The dashboard should contain the following sections:
+
+1. Executive Overview
+2. Performance Analysis
+3. Product Comparison
+4. Best & Worst Performers
+5. Data Quality
+
+Dashboard features:
+- Country filter.
+- Market filter.
+- KPI cards.
+- Monthly spending trends.
+- Actual versus budget comparisons.
+- Product-country comparison.
+- Best and worst performers.
+- Statistical findings.
+- Data-quality information.
+- AI-generated business commentary.
+
+When a specific country is selected, display financial values in that country's local currency.
+
+For global or cross-country comparisons, use EUR.
+
+## 8. Product and Country Comparison
+
+Compare product-country combinations based on spending and sales performance.
+
+Identify:
+- Three best-performing product-country combinations.
+- Three worst-performing product-country combinations.
+- Monthly performance changes.
+- Actual spending versus sales-adjusted expected spending.
+- Significant deviations.
+
+Provide meaningful comparisons instead of simply ranking products by spending amount.
+
+## 9. Generative AI Integration
+
+Integrate the Groq API into the application.
+
+Use Generative AI to produce business commentary based on the calculated analysis results.
+
+The AI should behave like a senior Philips business analyst.
+
+The generated commentary should include:
+
+1. Performance Summary
+2. Key Deviations
+3. Possible Business Explanation
+4. Recommended Actions
+
+The AI should:
+- Explain important spending deviations.
+- Consider actual sales performance.
+- Identify potential business concerns.
+- Explain positive and negative trends.
+- Provide actionable recommendations.
+- Avoid calling ordinary budget overspending bad without considering sales growth.
+- Avoid making unsupported profit claims.
+- Use the actual calculated data rather than inventing numbers.
+
+## 10. PDF Export
+
+Provide an option to download the dashboard analysis as a PDF.
+
+PDF formatting requirements:
+- Black text.
+- Times New Roman-style font.
+- Main heading: 16 pt.
+- Subheadings: 14 pt.
+- Normal text: 12 pt.
+- Line spacing: 1.5.
+- Justified paragraphs.
+- Proper page breaks.
+- Readable tables.
+- Include executive summary, analysis, statistical findings, AI commentary and methodology.
+
+## 11. Technology Stack
+
+Backend:
+- Python
+- FastAPI
+- Pandas
+- NumPy
+- SciPy
+- Groq API
+
+Frontend:
+- React
+- Vite
+- Recharts
+- Lucide React
+- React Markdown
+
+Other tools:
+- VS Code
+- Git and GitHub
+- Excel
+- Python virtual environment
+- Node.js and npm
+
+## 12. PowerPoint Presentation
+
+The team hackathon PPT must contain exactly three slides.
+
+The slides should be:
+
+1. Business Challenge & Objective
+2. Proposed Solution & Technology
+3. Key Outcomes & Business Value
+
+The content should be concise, professional and suitable for a company-level hackathon presentation.
+
+The presentation should communicate the business problem, proposed technical solution and measurable business value.
+
+Generate three separate slide images in a professional Philips-style corporate design, similar to the reference slides provided by my teammates.
+
+## 13. Project Submission
+
+Prepare the complete project so it can be shared with the team lead and evaluated on another laptop.
+
+The project should include:
+- Backend source code.
+- Frontend source code.
+- Required datasets.
+- Transformed data.
+- Generated JSON analysis files.
+- Python requirements.txt.
+- Frontend package.json and package-lock.json.
+- README with installation and execution instructions.
+- Environment variable example file.
+
+Do not include:
+- Python virtual environment.
+- Node modules.
+- Secret API keys.
+- Unnecessary temporary files.
+
+The final submission ZIP must be below 25 MB.
+
+The project should also be available through GitHub so evaluators can browse the source code and understand the implementation.
+
+## 14. Final Project Objective
+
+Build a complete, professional, company-level Business Deviation Analysis and Commentary system for Philips.
+
+The application should combine data engineering, statistical analysis, business intelligence, interactive visualization and Generative AI.
+
+The final result should not merely show financial numbers. It should explain why deviations occur, whether additional spending is justified by sales performance, which product-country combinations perform well or poorly, and what business actions should be taken.
+
+
+Prompts Used - Rakshun Selvaa S K 

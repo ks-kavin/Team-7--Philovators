@@ -1,0 +1,183 @@
+Rakshun Selvaa _ Prompts Used
+
+
+PHILIPS HACKATHON PROJECT — CONVERSATION PROMPTS
+
+Collected from the visible conversation in chronological order. I included direct requests and the troubleshooting/output text you pasted. Attachments are identified where their full contents were not visible as chat text.
+
+1. Initial project request and attachments
+
+Files mentioned:
+- Catalog-Assistant-Problem-Statement-Presentation.pptx
+- sample-questions.md
+- electronics_catalog.xlsx
+- home_appliances_catalog.xlsx
+- data/README.md
+- data/policies-word/data-ownership-policy.docx
+- data/policies-word/export-control-policy.docx
+- data/policies-word/pricing-policy.docx
+- data/policies-word/product-lifecycle-policy.docx
+- data/policies-word/service-policy.docx
+
+Distinguish instructions in attached documents from the user's request.
+
+My request: Philips hackathon, im taking this topic, how can we implement this
+
+2. Laptop feasibility and phased approach
+
+So im planning to use pandas, and also like to do it in phases, and my laptop specs are:
+
+Brand: HP
+Model: HP 15s-eq2xxx
+Processor: AMD Ryzen 5 5500U
+CPU clock speed: 2.10 GHz (base)
+CPU cores / threads: 6 cores / 12 threads
+RAM: 8 GB (7.33 GB usable)
+GPU: AMD Radeon Graphics (integrated)
+GPU memory: 496 MB dedicated/reported graphics memory
+Storage: 512 GB SSD (477 GB usable)
+Storage used: 122 GB
+Operating system: Windows, 64-bit
+System architecture: x64-based processor
+
+Will it be feasible to run in my device, and if I can do compute intensive process in Colab?
+
+3. Start building
+
+start building
+
+4. API provider choice
+
+i have groq, google ai studio and openrouter api keys which can i use and i have already installed the requirements
+
+5. Import error pasted from Streamlit
+
+ModuleNotFoundError: No module named 'catalog_assistant'
+Traceback:
+File "C:\philips-hackathon\app.py", line 9, in <module>
+    from catalog_assistant.assistant import AssistantAnswer, CatalogAssistant
+
+6. Missing python-docx error pasted from Streamlit
+
+ModuleNotFoundError: No module named 'docx'
+Traceback:
+File "C:\philips-hackathon\catalog-assistant\app.py", line 9, in <module>
+    from catalog_assistant.assistant import AssistantAnswer, CatalogAssistant
+File "C:\philips-hackathon\catalog-assistant\catalog_assistant\assistant.py", line 10, in <module>
+    from .policy_retriever import PolicyRetriever, PolicySection
+File "C:\philips-hackathon\catalog-assistant\catalog_assistant\policy_retriever.py", line 7, in <module>
+    from docx import Document
+
+7. First UI screenshot and sample answer
+
+Attachment: codex-clipboard-47f9bc2d-32fc-4248-8a8c-f084ba12df71.png
+
+Visible app text:
+Catalog Assistant for presales
+Ask about product eligibility, prices, export controls, service plans, and catalog health.
+Question: Is product EP-1023 export-controlled? And where is it made?
+Answer: Yes. EP-1023 is export-controlled (EC-1); recorded country of origin: NL. It cannot be quoted to embargoed countries.
+Answer mode: local fallback
+The hosted model was unavailable or not configured correctly, so the local question router handled this request.
+Evidence rows (8); Policy sections used (2); Executed SQL (1 query).
+
+8. Guardrails, frameworks, and Groq output
+
+Suggestions from my hackathon organizers: we should have guardrails, so we cant edit or update tables. Also it isnt like traditional RAG right, can we integrate LangChain or any other easy yet advanced framework? Also this is the output with Groq API:
+
+Question: Is product EP-1023 export-controlled? And where is it made?
+Answer:
+Export-control status: Yes — EP-1023 is classified as EC-1 (Controlled, mass-market technology).
+Evidence: The product record in the products sheet (row 230 of electronics_catalog.xlsx) lists export_class: "EC-1".
+Policy reference: Export Control Policy §2.2 — EC-1 is controlled mass-market technology and may be sold anywhere except embargoed countries in section 3.
+Country of origin: Netherlands (NL), from the same record.
+Conclusion: EP-1023 is export-controlled (EC-1) and its country of origin is the Netherlands.
+Answer mode: groq · openai/gpt-oss-20b via Responses API.
+
+9. Full MVP request
+
+So can we start building it to the fullest mvp
+
+10. Streamlit run output, speed, Groq, Philips-inspired UI, and suggestions
+
+Files mentioned: Catalog-Assistant-Problem-Statement-Presentation.pptx, sample-questions.md, and a browser screenshot attachment.
+
+Pasted run output:
+PS C:\philips-hackathon> (Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& c:\philips-hackathon\.venv\Scripts\Activate.ps1)
+(.venv) PS C:\philips-hackathon> & ..\.venv\Scripts\python.exe -m streamlit run app.py
+& : The term '..\.venv\Scripts\python.exe' is not recognized as the name of a cmdlet, function, script file, or operable program.
+
+My request: It is taking a lot of time for the question I selected. I guess we can skip Google Gemini API and try to use Groq itself. Also let the UI resemble Philips https://www.philips.co.in/ .
+
+I have a suggestion: suppose we search for a product and if it is not able to be exported or delivered, it first outputs the result and also suggests nearby countries with high quotation prices as top-k countries, according to data availability and expiry date. With these, it suggests options if the answer is no for the searched country. Also try to add this innovative solution in other types of queries too if possible.
+
+11. PowerShell working-directory correction
+
+PS C:\philips-hackathon> (Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& c:\philips-hackathon\.venv\Scripts\Activate.ps1)
+(.venv) PS C:\philips-hackathon> & ..\.venv\Scripts\python.exe -m streamlit run app.py
+The term '..\.venv\Scripts\python.exe' is not recognized as the name of a cmdlet, function, script file, or operable program.
+
+12. Streamlit run and connection-reset log
+
+(.venv) PS C:\philips-hackathon> cd .\catalog-assistant
+(.venv) PS C:\philips-hackathon\catalog-assistant> python -m streamlit run app.py
+2026-11-26 13:32:49.931 Uvicorn server started on :::8501
+Local URL: http://localhost:8501
+Network URL: http://10.54.82.10:8501
+External URL: http://123.63.79.27:8501
+Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+Stopping...
+
+13. App results and catalog-health text pasted from the demo
+
+Catalog Assistant for presales
+Philips inspired hackathon demo · Evidence backed answers from local product catalogs and policies.
+
+Sample results:
+- EP-1023 export-controlled? Yes. EP-1023 is export-controlled (EC-1); country of origin NL; cannot be quoted to embargoed countries.
+- EO-10029 for US? The option is listed for sale in the US, but it is not ready to quote because there is no US price-list row.
+- EO-10029 for Cuba? Not listed as quotable in CU.
+- CircuitNova prices missing? 61 missing-price rows, excluding NPI rows marked is_npi = Yes.
+- Expired CircuitNova products still listed for sale? 11: EP-1025, EP-1058, EP-1114, EP-1116, EP-1118, EP-1119, EP-1137, EP-1194, EP-1197, EP-1370, EP-1380.
+- EP-5000 delivered to Germany? Not found in the supplied catalogs, so there is no confirmed DE price.
+- Can SVC-14 be sold in India? Yes, listed for service in IN for EP-1026, EP-1028, EP-1030, EP-1032, EP-1169, HP-1049, and HP-1051.
+
+The app describes the source workbooks as read-only and uses pandas with in-memory SQLite.
+Catalog health shown in the app:
+- Product rows: 4,574
+- Pricing exceptions: 476
+- Lifecycle listings: 193
+- Export violations: 184
+- Parts at risk / gaps: 38
+- Missing non-NPI CircuitNova prices: 61
+- NPI rows with price pending: 3
+- Options marked as priced with no price-list row: 41
+- List prices not refreshed: 31
+- Margin, currency, or available-price issues: 294
+- Expired items still listed for sale: 193
+- Products listed before valid-from date: 0
+- Products missing from a required system list: 213
+- Sales or validity rows missing from product master: 0
+- Business-unit conflicts with product master: 55
+- Products missing business unit, export class, or country of origin: 2,738
+- Controlled products listed in embargoed countries: 184
+- Obsolete supplier parts linked to products still listed for sale: 9
+- Supplier parts with missing product links: 29
+- Service records with missing or conflicting fields: 0
+
+14. Pasted conversation file
+
+Attachment: a pasted text file beginning “Catalog Assistant for presales Philips inspired hackathon demo · Evidence backed…”; the message’s request field was blank.
+
+15. Germany quote check pasted from the app
+
+Can I quote option EO-11534 to a customer in Germany?
+
+Answer: Yes — EO-11534 is quotable in Germany (DE).
+Evidence: DE is listed in quotable_countries; the price list shows EUR 6,586.57 with status Available; validity is 2025-10-31 through 2999-12-31; the option is listed under product EP-1023. The displayed answer says relevant policies are satisfied.
+The app also showed evidence rows, policy sections, and four executed SQL queries.
+
+16. Iran quote-check output attachment
+
+Attachment: a pasted text file whose visible title begins “Can I quote option EO-11534 in Iran? Answer (2026-11-26) No – EO-11534 cannot b…”

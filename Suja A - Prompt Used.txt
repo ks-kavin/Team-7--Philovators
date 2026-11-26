@@ -1,0 +1,29 @@
+Suja A - Prompt Used
+
+I am working on a Sales Performance Reporting project for a hackathon. I have three Excel files: Orders, Customers and Products.
+
+I have basic knowledge of SQL, Python and databases, but I am still learning PySpark and Databricks. Please guide me step by step to complete this project.
+
+I want to use Databricks Free Edition with Python and PySpark.
+
+My requirements are:
+
+1. Read the three Excel files and load them into Bronze tables.
+2. Check the data for missing values, duplicate records and invalid values.
+3. Clean the data and convert columns into proper data types.
+4. If an order has multiple records, keep only the latest record based on the updated timestamp.
+5. Store rejected records separately and include the reason why each record was rejected.
+6. Join Orders, Customers and Products using their IDs.
+7. Calculate base revenue, loyalty discounts, shipping charges and net revenue according to the given business rules.
+8. Implement incremental processing using Delta MERGE to insert new orders and update existing orders only when the incoming record is newer.
+9. Check idempotency by running the same batch again and verifying that duplicate records are not created.
+10. Create reports for daily revenue, category revenue, top customers, order status and price comparison.
+11. Calculate promo-code usage by loyalty tier and product category.
+12. Calculate shipping contribution by customer city and product category.
+13. Create a final Gold table with one row per valid order.
+
+Please explain everything in simple language because I am a beginner in PySpark.
+
+I know basic SQL concepts like SELECT, WHERE, GROUP BY, JOIN and aggregate functions. Relate PySpark operations to SQL wherever possible.
+
+After each step, evaluate the output

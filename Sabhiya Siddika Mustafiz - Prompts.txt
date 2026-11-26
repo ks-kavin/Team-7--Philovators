@@ -1,0 +1,24 @@
+Sabhiya Siddika Mustafiz - Prompts
+
+*1. Project Design and Requirements*  
+Design a financial What-If Simulator that helps business users evaluate how changes in marketing spend, subscription pricing, and employee costs affect company performance.
+
+*2. Frontend Development*  
+Develop an interactive dashboard using React and TypeScript with sliders for business parameters, KPI cards, baseline comparisons, and financial result tables.
+
+*3. Backend and API Development*  
+Build a Python FastAPI backend with endpoints to retrieve baseline data and calculate financial results based on user-defined scenarios.
+
+*4. JSON-Driven Scenario Engine*  
+Create a configurable financial calculation engine that reads KPI definitions, formulas, dependencies, and business rules from a JSON file.
+
+*5. Financial KPI Modelling*  
+Implement calculations for subscriber growth, CAC, churn, revenue, expenses, taxation, and net profit, including lag effects and linked KPI changes.
+
+*6. Guardrails and Validation*  
+Implement financial and operational guardrails, and validate the simulator using the provided baseline and checkpoint scenarios.
+
+*7. Frontend–Backend Integration*  
+Connect the React dashboard with the FastAPI backend to dynamically update financial results whenever the user modifies scenario parameters.
+
+
